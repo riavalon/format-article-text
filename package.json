@@ -1,0 +1,50 @@
+{
+  "name": "format_article_text",
+  "version": "1.0.0",
+  "description": "Chrome extension for formatting body copy on webpages.",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "NODE_ENV=development npm-run-all --parallel build watch serve",
+    "prod": "NODE_ENV=production npm-run-all --parallel build watch serve",
+    "watch": "livereload build/",
+    "build": "rollup -c --watch",
+    "serve": "live-server build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riavalon/format-article-text.git"
+  },
+  "keywords": [
+    "extension",
+    "format",
+    "css",
+    "js",
+    "typescript"
+  ],
+  "author": "Raven Avalon <raven.avalon5@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riavalon/format-article-text/issues"
+  },
+  "homepage": "https://github.com/riavalon/format-article-text#readme",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "live-server": "^1.2.0",
+    "livereload": "^0.6.0",
+    "npm-run-all": "^4.0.1",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-nested": "^1.0.0",
+    "postcss-simple-vars": "^3.0.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-postcss": "^0.2.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^3.2.2",
+    "tslint": "^4.4.2",
+    "typescript": "^2.1.6"
+  }
+}
