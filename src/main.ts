@@ -1,3 +1,8 @@
+import bootstrap from './bootstrap';
+
+import './sass/app.css';
+
+
 if (ENV !== 'production') {
   // init live reload
   document.write(
@@ -5,3 +10,5 @@ if (ENV !== 'production') {
     `:35729/livereload.js?snipver=1"></script>`
   );
 }
+
+bootstrap();

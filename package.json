@@ -5,11 +5,12 @@
   "main": "src/main.ts",
   "scripts": {
     "start": "npm run dev",
-    "dev": "NODE_ENV=development npm-run-all --parallel build watch serve",
+    "dev": "NODE_ENV=development npm-run-all --parallel build watch",
     "prod": "NODE_ENV=production npm-run-all --parallel build watch serve",
     "watch": "livereload build/",
     "build": "rollup -c --watch",
-    "serve": "live-server build/"
+    "serve": "live-server build/",
+    "build:extension": "NODE_ENV=production rollup -c && scripts/build-extension.sh"
   },
   "repository": {
     "type": "git",

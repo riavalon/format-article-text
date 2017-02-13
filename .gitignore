@@ -1,5 +1,10 @@
+# Built files
 /build/js/main.min.js
+/tmp
+/format-article-text.zip
+
+# Module directories
 /node_modules/
 
+# Misc
 .DS_Store
-

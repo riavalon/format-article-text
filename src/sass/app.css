@@ -1,0 +1,38 @@
+body {
+  font-family: 'Helvetica', 'Calibri', 'Roboto', 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#custom-css {
+  display: block;
+  width: 90%;
+  height: 300px;
+  margin: 10px auto;
+
+  font-size: 16px;
+}
+
+.button {
+  margin: 5px 0;
+  width: 250px;
+  padding: 10px 20px;
+  border: none;
+  background: #008aff;
+  color: white;
+  font-size: 18px;
+  white-space: nowrap;
+  outline: none;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #00bbff;
+    cursor: pointer;
+  }
+}
+
+strong#status {
+  display: block;
+  text-align: center;
+}

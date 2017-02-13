@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "version": "1.0.0",
+
+  "name": "Format Article Text",
+  "description": "Format the body copy of webpages for readability.",
+  "author": "Raven Avalon <raven.avalon5@gmail.com>",
+
+  "browser_action": {
+    "default_popup": "build/index.html"
+  }
+}
