@@ -16,6 +16,8 @@ body {
 
 .button {
   margin: 5px 0;
+  display: block;
+  text-align: center;
   width: 250px;
   padding: 10px 20px;
   border: none;

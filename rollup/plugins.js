@@ -12,6 +12,16 @@ const cssnext = require('postcss-cssnext');
 const cssnano = require('cssnano');
 
 export default [
+  commonjs({
+    namedExports: {
+      'react': ['createElement', 'PropTypes', 'Component']
+    }
+  }),
+  resolve({
+    jsnext: true,
+    main: true,
+    browser: true,
+  }),
   postcss({
     plugins: [
       simplevars(),
@@ -21,16 +31,10 @@ export default [
     ],
     extensions: ['.css']
   }),
-  typescript(),
-  commonjs(),
   replace({
-    exclude: 'node_modules/**',
-    ENV: JSON.stringify(process.env.NODE_ENV || 'development')
+    ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
   }),
-  resolve({
-    jsnext: true,
-    main: true,
-    browser: true,
-  }),
+  typescript(),
   (process.env.NODE_ENV === 'production' && uglify())
 ];
