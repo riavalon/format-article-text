@@ -3,7 +3,7 @@
 /tmp
 /format-article-text.zip
 /**/build.crx
-/**/build.pem
+/**/*.pem
 
 # Module directories
 /node_modules/
