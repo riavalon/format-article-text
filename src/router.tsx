@@ -9,7 +9,7 @@ class FATRouter extends React.Component {
     return (
       <Router history={hashHistory}>
         <Route path='/' component={FATMain} />
-        <Route path='settings' component={FATSettings} />
+        {/*<Route path='settings' component={FATSettings} />*/}
       </Router>
     );
   }

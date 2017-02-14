@@ -2,6 +2,8 @@
 /build/js/main.min.js
 /tmp
 /format-article-text.zip
+/build.crx
+/build.pem
 
 # Module directories
 /node_modules/

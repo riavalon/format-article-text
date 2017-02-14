@@ -34,9 +34,9 @@ class FATMain extends React.Component {
         <a className='button' onClick={this.handleClick} id='quick-select-button'>
           Select Elements
         </a>
-        <Link to='/settings' className='button' id='settings-page-button'>
+        {/*<Link to='/settings' className='button' id='settings-page-button'>
           View Settings
-        </Link>
+        </Link>*/}
 
         <strong id='status'>{this.state.extensionStatus}</strong>
       </div>
