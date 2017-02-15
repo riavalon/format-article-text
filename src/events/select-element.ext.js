@@ -1,4 +1,12 @@
 // Set document event listeners for selecting elements in page.
+(function() {
+  const node = document.createElement('style');
+  document.head.appendChild(node);
+  window.addStyleString = function(str) {
+    node.innerHTML = str;
+  }
+}());
+
 ;(function() {
   // Default css.
   // TODO: Find a way to populate this object dynamically from the extensions settings page.
@@ -67,13 +75,14 @@
     button.textContent = 'Close Modal';
     document
       .getElementById('FATModal')
+      .shadowRoot
       .appendChild(button);
   };
 
   const createModalDiv = () => {
     const modalDiv = document.createElement('div');
-    modalDiv.setAttribute('id', 'FATModal');
-    const styles = {
+    const centeringDiv = document.createElement('div');
+    const modalStyles = {
       position: 'fixed',
       zIndex: '9999',
       top: '20px',
@@ -86,16 +95,26 @@
       overflowY: 'scroll',
       border: '1px solid rgba(0,0,0,0.2)'
     };
-    const styleKeys = Object.keys(styles);
-    styleKeys.forEach((key) => {
-      modalDiv.style[key] = styles[key];
-    });
+    const centeringStyles = {
+      width: '50%',
+      margin: '10px auto',
+    };
+
+    centeringDiv.setAttribute('id', 'FATModalCenteringDiv');
+    modalDiv.setAttribute('id', 'FATModal');
+
+    Object.keys(centeringStyles).forEach(key => centeringDiv.style[key] = centeringStyles[key]);
+    Object.keys(modalStyles).forEach(key => modalDiv.style[key] = modalStyles[key]);
+
+    // create shadow root for style encapsulation! Muahahaha
+    const shadow = modalDiv.createShadowRoot();
+    shadow.appendChild(centeringDiv);
     document.body.appendChild(modalDiv);
   }
 
   const removeModalDivFromPage = () => {
     const modal = document.getElementById('FATModal');
-    const closeButton = document.getElementById('FATModalCloseButton');
+    const closeButton = modal.shadowRoot.getElementById('FATModalCloseButton');
     closeButton.removeEventListener('click', removeModalDivFromPage);
     document.body.removeChild(modal);
   };
@@ -118,10 +137,11 @@
 
     createModalDiv();
     createCloseModalButton();
-    const modalDiv = document.getElementById('FATModal');
-    const modalDivCloseButton = document.getElementById('FATModalCloseButton');
+    const modalShadow = document.getElementById('FATModal').shadowRoot;
+    const modalDivCentering = modalShadow.getElementById('FATModalCenteringDiv');
+    const modalDivCloseButton = modalShadow.getElementById('FATModalCloseButton');
 
-    modalDiv.appendChild(el);
+    modalDivCentering.appendChild(el);
     removeCSSFromElement(el);
     applyStyles(el);
 
