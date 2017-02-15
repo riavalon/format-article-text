@@ -47,6 +47,22 @@
 
   const createCloseModalButton = () => {
     const button = document.createElement('button');
+    const styles = {
+      // fixed to modal top left corner
+      position: 'fixed',
+      top: '40px',
+      left: '40px',
+
+      // button styling
+      border: 'none',
+      padding: '10px 20px',
+      fontSize: '16px',
+      fontFamily: 'sans-serif',
+      background: '#555',
+      color: 'white',
+      cursor: 'pointer'
+    };
+    Object.keys(styles).forEach(key => button.style[key] = styles[key]);
     button.setAttribute('id', 'FATModalCloseButton');
     button.textContent = 'Close Modal';
     document
@@ -120,7 +136,15 @@
     cloneElement(event.target);
   };
 
+  const resetPage = () => {
+    const div = document.getElementById('FATModal');
+    if (div) {
+      document.body.removeChild(div);
+    }
+  };
+
   const bindEventListeners = () => {
+    resetPage();
     document.addEventListener('mouseover', listenToEvents);
     document.addEventListener('click', unsubscribeOnClick);
   };
